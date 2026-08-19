@@ -1,0 +1,35 @@
+default:
+  studyName: "ohda_project_template_unit_test_sample"
+  resultsDatabaseSchema: "ohda_project_template_unit_test_sample"
+  projectRootFolder: !expr file.path(getwd(), 'extras/unitTest') #Project root folder will hold the study settings
+  resultFolder: !expr file.path(getwd(), 'unitTest')  # Result folder will hold the study results
+  andromeda: !expr options(andromedaTempFolder = file.path(getwd(), "andromedaTemp"))
+  studySpecificationFileName: "unitTestAnalysisSpecifications.json"
+  webApiUrl: "https://epi.jnj.com:8443/WebAPI"
+  databricksUrl: !expr paste0("https://", Sys.getenv('DATABRICKS_HOST'))
+  databaseDiagnostics:
+    dpResultsDatabaseSchema: "dp_temp"
+    dpResultsTableName: "db_profile_results"
+
+  cdm:
+    #Cprd: cdm_cprd_v2580
+    # AustraliaLpd: cdm_iqvia_australia_v3006
+    # Ccae: cdm_merative_ccae_v3046
+    # FranceDa: cdm_iqvia_france_v2914
+    # GermanyDa: cdm_iqvia_germany_v2915
+    # HealthVerity: cdm_healthverity_cc_v3085
+    Mdcd: sample_cdm_merative_mdcd
+    Mdcr: sample_cdm_merative_mdcr
+    # Pharmetrics: cdm_iqvia_pharmetrics_v3043
+    # OptumDod: cdm_optum_extended_dod_v3039
+    # OptumEhr: cdm_optum_ehr_v3037
+    # OptumSes: cdm_optum_extended_ses_v3042
+    # Jmdc: cdm_jmdc_v3044
+    #Premier: cdm_premier_v2754
+  cohorts:
+    cohortIds: [2245,9900,2072,11145,8035,8036,12863,12864,11081,4338,13826]
+  cohortDiagnostics:
+    cohortIds: [2245,9900,2072]
+  pheValuator:
+    analysisListFileName: "PheValuatorAnalysisList.json"
+    

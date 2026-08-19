@@ -1,0 +1,12 @@
+andromedaTemp/
+results/
+strategusInternals/
+rsconnect/
+/unitTest/
+!/extras/unitTest/
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.environ_status
+.Renviron

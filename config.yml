@@ -1,0 +1,33 @@
+default:
+  studyName: "epi_943_v3_repro"
+  resultsDatabaseSchema: "epi_943_v3_repro"
+  projectRootFolder: !expr getwd() # Project root folder will hold the study settings
+  resultFolder: !expr getwd()  # Result folder will hold the study results and strategus internals
+  andromeda: !expr options(andromedaTempFolder = file.path("c:/andromedaTemp"))
+  studySpecificationFileName: "analysisSpecifications.json"
+  webApiUrl: "https://epi.jnj.com:8443/WebAPI"
+  databricksUrl: !expr paste0("https://", Sys.getenv('DATABRICKS_HOST'))
+  databaseDiagnostics:
+    dpResultsDatabaseSchema: "dp_temp"
+    dpResultsTableName: "db_profile_results"
+
+  cdm:
+    #Cprd: cdm_cprd_v3473
+    #AustraliaLpd: cdm_iqvia_australia_v3476
+    Ccae: cdm_merative_ccae_v3619
+    #FranceDa: cdm_iqvia_france_v3474
+    #GermanyDa: cdm_iqvia_germany_v3475
+    #HealthVerity: cdm_healthverity_cc_v3470
+    Mdcd: cdm_merative_mdcd_v3644
+    Mdcr: cdm_merative_mdcr_v3618
+    OptumDod: cdm_optum_extended_dod_v3620
+    OptumEhr: cdm_optum_ehr_v3622
+    #OptumSes: cdm_optum_extended_ses_v3468
+    #Jmdc: cdm_jmdc_v3464
+    #Premier: cdm_premier_v3469
+  cohorts:
+    cohortIds: [5082,5081,5089,5090,5092,5098,5085,5086,5087,5088]
+  cohortDiagnostics:
+    cohortIds: [5082,5081,5089,5090,5092,5098,5085,5086,5087,5088]
+  pheValuator:
+    analysisListFileName: "PheValuatorAnalysisList.json"
